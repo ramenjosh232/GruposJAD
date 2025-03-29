@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Programa JAD - Registro por Grupo</title>
+  <link rel="stylesheet" href="bootstrap.css"> <!-- Bootstrap local -->
+  <link rel="stylesheet" href="css/style.css"> <!-- Tus estilos personalizados -->
+</head>
+<body>
+  <div class="container mt-4">
+    <!-- Menú de navegación -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">Programa JAD</a>
+      <div class="ml-auto">
+        <button class="btn btn-primary" onclick="showView('groupSelection')">Grupos</button>
+        <button class="btn btn-success" onclick="verifyPassword()">Panel Líder</button>
+      </div>
+    </nav>
+
+    <!-- Vista: Selección de Grupos -->
+    <div id="groupSelection" class="view">
+      <h2 class="text-center mt-4">Selecciona un Grupo</h2>
+      <div class="row text-center">
+        <div class="col-md-3">
+          <button class="btn btn-info w-100 mb-2" onclick="selectGroup('agua')">
+            Grupo Agua - Cupos: <span id="cupos-agua">5/5</span>
+          </button>
+        </div>
+        <div class="col-md-3">
+          <button class="btn btn-danger w-100 mb-2" onclick="selectGroup('fuego')">
+            Grupo Fuego - Cupos: <span id="cupos-fuego">5/5</span>
+          </button>
+        </div>
+        <div class="col-md-3">
+          <button class="btn btn-warning w-100 mb-2" onclick="selectGroup('aire')">
+            Grupo Aire - Cupos: <span id="cupos-aire">5/5</span>
+          </button>
+        </div>
+        <div class="col-md-3">
+          <button class="btn btn-success w-100 mb-2" onclick="selectGroup('tierra')">
+            Grupo Tierra - Cupos: <span id="cupos-tierra">5/5</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Vista: Formulario de Registro -->
+    <div id="registrationFormView" class="view" style="display: none;">
+      <h2 class="text-center mt-4" id="formTitle">Formulario de Registro</h2>
+      <form id="registrationForm" class="p-4 border rounded shadow-sm bg-light">
+        <div class="form-group">
+          <label for="nombre">Nombre:</label>
+          <input type="text" class="form-control" id="nombre" required>
+        </div>
+        <div class="form-group">
+          <label for="apellido">Apellido:</label>
+          <input type="text" class="form-control" id="apellido" required>
+        </div>
+        <div class="form-group">
+          <label for="edad">Edad:</label>
+          <input type="number" class="form-control" id="edad" required>
+        </div>
+        <div class="form-group">
+          <label for="sexo">Sexo:</label>
+          <select class="form-control" id="sexo" required>
+            <option value="">Selecciona...</option>
+            <option value="M">Masculino</option>
+            <option value="F">Femenino</option>
+            <option value="Otro">Otro</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="lider">Líder:</label>
+          <input type="text" class="form-control" id="lider" required>
+        </div>
+        <button type="submit" class="btn btn-primary w-100 mt-3">Registrar</button>
+      </form>
+      <button class="btn btn-secondary w-100 mt-3" onclick="showView('groupSelection')">Volver a Grupos</button>
+      <div id="mensaje" class="mt-2"></div>
+    </div>
+
+    <!-- Vista: Panel del Líder -->
+    <div id="leaderPanel" class="view" style="display: none;">
+      <h2 class="text-center mt-4">Panel del Líder - Registros por Grupo</h2>
+
+      <div class="mt-3">
+        <h3 class="text-primary">Grupo Agua</h3>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Apellido</th>
+              <th>Edad</th>
+              <th>Sexo</th>
+              <th>Líder</th>
+              <th>Acción</th>
+            </tr>
+          </thead>
+          <tbody id="leaderTableBody-agua"></tbody>
+        </table>
+      </div>
+
+      <div class="mt-3">
+        <h3 class="text-danger">Grupo Fuego</h3>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Apellido</th>
+              <th>Edad</th>
+              <th>Sexo</th>
+              <th>Líder</th>
+              <th>Acción</th>
+            </tr>
+          </thead>
+          <tbody id="leaderTableBody-fuego"></tbody>
+        </table>
+      </div>
+
+      <div class="mt-3">
+        <h3 class="text-warning">Grupo Aire</h3>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Apellido</th>
+              <th>Edad</th>
+              <th>Sexo</th>
+              <th>Líder</th>
+              <th>Acción</th>
+            </tr>
+          </thead>
+          <tbody id="leaderTableBody-aire"></tbody>
+        </table>
+      </div>
+
+      <div class="mt-3">
+        <h3 class="text-success">Grupo Tierra</h3>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Apellido</th>
+              <th>Edad</th>
+              <th>Sexo</th>
+              <th>Líder</th>
+              <th>Acción</th>
+            </tr>
+          </thead>
+          <tbody id="leaderTableBody-tierra"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Firebase App (obligatorio) -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+  <!-- Firebase Realtime Database -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-database-compat.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
