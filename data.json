@@ -1,0 +1,46 @@
+{
+    "groups": {
+      "Grupo 1": {
+        "nombre": "Nueva Esperanza",
+        "hora": "4:30 PM",
+        "libro": "Romanos",
+        "lider": "Juan",
+        "cupos": 10,
+        "registros": {}
+      },
+      "Grupo 2": {
+        "nombre": "Nueva Esperanza",
+        "hora": "6:00 PM",
+        "libro": "Gálatas",
+        "lider": "María",
+        "cupos": 10,
+        "registros": {}
+      },
+      "Grupo 3": {
+        "nombre": "Nueva Esperanza",
+        "hora": "5:00 PM",
+        "libro": "Efesios",
+        "lider": "Carlos",
+        "cupos": 10,
+        "registros": {}
+      },
+      "Grupo 4": {
+        "nombre": "Nueva Esperanza",
+        "hora": "7:00 PM",
+        "libro": "Hebreos",
+        "lider": "Lucía",
+        "cupos": 10,
+        "registros": {}
+      },
+      "Grupo 5": {
+          "nombre": "Nueva Esperanza",
+          "lider": "María García",
+          "hora": "6:00 PM",
+          "libro": "Filipenses",
+          "cupos": 20,
+          "registros": {}
+      }
+      }
+    }
+  
+  
