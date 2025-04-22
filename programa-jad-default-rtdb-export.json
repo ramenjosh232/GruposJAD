@@ -1,0 +1,39 @@
+{
+  "groups": {
+    "Grupo 1": {
+      "cupos": "10",
+      "hora": "Sabado 6-8PM",
+      "libro": "No Desperdicies Tus Emociones",
+      "Sector": "Evaristo Morales",
+      "nombre": "Grupo 1 - Ricardo y Sarah"
+    },
+    "Grupo 2": {
+      "cupos": "20",
+      "hora": "6:00 PM",
+      "libro": "Gálatas",
+      "Sector": "Eduardo",
+      "nombre": "Grupo 2"
+    },
+    "Grupo 3": {
+      "cupos": "20",
+      "hora": "5:00 PM",
+      "libro": "Efesios",
+      "Sector": "Carlos",
+      "nombre": "Grupo 3"
+    },
+    "Grupo 4": {
+      "cupos": "20",
+      "hora": "7:00 PM",
+      "libro": "Hebreos",
+      "Sector": "Bryan",
+      "nombre": "Grupo 4"
+    },
+    "Grupo 5": {
+      "cupos": 20,
+      "hora": "6:00 PM",
+      "libro": "Filipenses",
+      "Sector": "Daniel",
+      "nombre": "Grupo 5"
+    }
+  }
+}

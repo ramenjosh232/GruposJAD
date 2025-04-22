@@ -42,7 +42,7 @@ function loadGroups() {
           <div class="card">
             <div class="card-body">
               <h5>${data.nombre || group}</h5>
-              <p><strong>Líder:</strong> ${data.lider || "No asignado"}</p>
+              <p><strong>Sector:</strong> ${data.municipio || "No asignado"}</p>
               <p><strong>Hora:</strong> ${data.hora || "No definida"}</p>
               <p><strong>Libro:</strong> ${data.libro || "No definido"}</p>
               <p><strong>Cupos disponibles:</strong> ${disponibles}</p>
@@ -99,8 +99,8 @@ function loadLeaderPanel() {
             <input class="form-control" value="${g.nombre || ""}" onchange="updateGroupField('${group}', 'nombre', this.value)">
           </div>
           <div class="mb-2">
-            <label>Líder:</label>
-            <input class="form-control" value="${g.lider || ""}" onchange="updateGroupField('${group}', 'lider', this.value)">
+            <label>Sector:</label>
+            <input class="form-control" value="${g.municipio || ""}" onchange="updateGroupField('${group}', 'municipio', this.value)">
           </div>
           <div class="mb-2">
             <label>Hora:</label>
